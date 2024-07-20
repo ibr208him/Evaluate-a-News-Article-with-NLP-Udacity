@@ -1,0 +1,13 @@
+<!doctype html><html lang="en" dir="ltr"><head><meta charset="utf-8"/><title>Test</title><script defer="defer" src="main.js"></script></head><body><header><div class="">Logo</div><div class="">navigation</div></header><main><section><form id="urlForm" onsubmit="return Client.handleSubmit(event)"><input id="name" name="url" placeholder="Enter URL" required/> <button id="submitButton" type="submit" onclick="">Submit</button></form></section><section><strong>Form Results:</strong><div id="results"><strong>The result of our analyzes is :</strong><ul id="resultList"><li class="agreement"></li><li class="subjectivity"></li><li class="confidence"></li><li class="irony"></li><li class="remaining_credits"></li></ul></div><div class="errorField"></div></section></main><footer><p>This is a footer</p></footer><script>// Check that service workers are supported
+      if ('serviceWorker' in navigator) { 
+          // Use the window load event to keep the page load performant 
+          window.addEventListener('load', () => { 
+              navigator.serviceWorker.register('/service-worker.js')
+              .then(registration => {
+                  console.log('ServiceWorker registration successful with scope: ', registration.scope);
+              })
+              .catch(error => {
+                  console.log('ServiceWorker registration failed: ', error);
+              });
+          }); 
+      }</script></body></html>
